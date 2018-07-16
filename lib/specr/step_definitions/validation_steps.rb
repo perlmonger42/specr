@@ -14,7 +14,7 @@ def checker(expected, actual, nesting)
     assert actual.is_a?(Array), nesting
     assert_empty(actual, nesting) if expected.empty?
     expected.each_with_index do |val, index|
-      assert includes_match(actual, val), "#{nesting}>#{index}"
+      assert_includes actual, val, "#{nesting}>#{index}"
     end
   else
     flunk "different types (#{expected.class} and #{actual.class}) at #{nesting}"
